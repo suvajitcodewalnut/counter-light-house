@@ -17,16 +17,16 @@ const Counter: React.FC = () => {
     setCounter((previous) => previous + 1);
   };
   const handleCounterDecrement = () => {
-    setCounter((previous) => previous - 1);
+    setCounter((previous) => (previous > 0 ? previous - 1 : 0));
   };
 
   return (
     <div className="flex items-center justify-center gap-6">
-      <div className="text-white text-8xl font-bold duration-200 transition-all">
+      <div className="mb-2 text-white text-8xl font-bold duration-200 transition-all">
         {counter}
       </div>
-      <div className="flex flex-row gap-2 h-full">
-        <div className="flex flex-col gap-2">
+      <div className="flex h-full">
+        <div className="flex flex-col gap-1">
           <button
             onClick={handleCounterIncrement}
             className="text-white border-1 rounded-md p-1 hover:bg-white hover:text-black hover:cursor-pointer duration-200 transition-all"
